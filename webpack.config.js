@@ -22,6 +22,8 @@ module.exports = {
         root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
+            SymphonyApi: 'app/api/SymphonyApi.jsx',
+            helper: 'app/utils/helper.js',
             applicationStyles : 'app/styles/app.scss'
         },
         extensions: ['', '.js', '.jsx']
