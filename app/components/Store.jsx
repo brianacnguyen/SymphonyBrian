@@ -56,9 +56,9 @@ var Store = React.createClass({
         }
 
         cartSummary.subtotal -= productObj.defaultPriceInCents;
-
+        console.log(cart);
         this.setState({
-            status: cart.length ? "viewCart" : "viewMenu",
+            status: helper.isEmptyObject(cart) ? "viewMenu" : "viewCart",
             cart: cart,
             cartSummary: cartSummary
         })

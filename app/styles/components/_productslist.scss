@@ -6,5 +6,10 @@
     font-size: 0px;
 }
 .products-list__row + .products-list__row {
-    margin-top: 50px;
+    border-top: $thin-white-border;
+}
+.products-list__row:first-child {
+    > .product__container {
+        padding-top: 0;
+    }
 }
