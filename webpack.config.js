@@ -23,6 +23,14 @@ module.exports = {
         alias: {
             Main: 'app/components/Main.jsx',
             Navigation: 'app/components/Navigation.jsx',
+            Home: 'app/components/Home.jsx',
+            AboutMe: 'app/components/AboutMe.jsx',
+            Store: 'app/components/Store.jsx',
+            ProductsList: 'app/components/ProductsList.jsx',
+            Product: 'app/components/Product.jsx',
+            CartModal: 'app/components/CartModal.jsx',
+            CartModalItem: 'app/components/CartModalItem.jsx',
+            ViewAsControl: 'app/components/ViewAsControl.jsx',
             SymphonyApi: 'app/api/SymphonyApi.jsx',
             helper: 'app/utils/helper.js',
             applicationStyles : 'app/styles/app.scss'
