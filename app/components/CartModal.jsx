@@ -10,7 +10,6 @@ var CartModal = React.createClass({
         this.props.onProductMinus(productObj);
     },
     onContinueShopping: function() {
-        debugger;
         this.props.onContinueShopping();
     },
     render: function() {
@@ -25,16 +24,16 @@ var CartModal = React.createClass({
             })
         };
         return (
-            <div>
-                  <div>Your Cart</div>
-                  <div>{renderCartItems()}</div>
-                  <div>
-                      <div>Subtotal</div>
-                      <div>{formattedSubtotal}</div>
+            <div className="cartmodal__container">
+                <div className="cartmodal__wrapper">
+                  <div className="cartmodal__header">Your Cart</div>
+                  <div className="cartmodal__cart">{renderCartItems()}</div>
+                  <div className="cartmodal__summary">
+                      <div className="cartmodal__summary__description">Subtotal</div>
+                      <div className="cartmodal__summary__price">{formattedSubtotal}</div>
                   </div>
-                  <div>
-                      <button onClick={this.onContinueShopping}>Continue Shopping</button>
-                  </div>
+                  <button className="cartmodal__continue-btn" onClick={this.onContinueShopping}>Continue Shopping</button>
+                </div>
             </div>
         )
     }

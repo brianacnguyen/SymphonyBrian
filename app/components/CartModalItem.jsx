@@ -22,13 +22,17 @@ var CartModalitem = React.createClass({
             defaultPriceInCents: defaultPriceInCents
         }
         return (
-            <div>
-                <img src={mainImage.ref} alt=""/>
-                <div>{name}</div>
-                <div>{formatedPrice}</div>
-                <div>{quantity}</div>
-                <button onClick={this.onProductAdd(product)}>Plus</button>
-                <button onClick={this.onProductMinus(product)}>Minus</button>
+            <div className="cartmodel__item__container">
+                <img className="cartmodel__item__img" src={mainImage.ref} alt=""/>
+                <div className="cartmodel__item__info">
+                    <div className="cartmodel__item__info__name">{name}</div>
+                    <div className="cartmodel__item__info__price">{formatedPrice}</div>
+                    <div className="cartmodel__item__info__quantity">{quantity}</div>
+                    <div className="cartmodel__item__info__btns">
+                        <button className="cartmodel__item__info__btn" onClick={this.onProductMinus(product)}>-</button>
+                        <button className="cartmodel__item__info__btn" onClick={this.onProductAdd(product)}>+</button>
+                    </div>
+                </div>
             </div>
         )
     }

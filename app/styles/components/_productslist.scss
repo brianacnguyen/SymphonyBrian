@@ -1,0 +1,10 @@
+.products-list {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 0px;
+}
+.products-list__row + .products-list__row {
+    margin-top: 50px;
+}

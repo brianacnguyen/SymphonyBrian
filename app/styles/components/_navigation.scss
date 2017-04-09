@@ -30,8 +30,9 @@
     text-decoration: none;
     transition: opacity 400ms ease;
     cursor: pointer;
-    &:hover {
+    &:hover, :focus {
         opacity: 0.8;
+        outline: 0;
     }
 }
 

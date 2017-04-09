@@ -17,12 +17,12 @@ var Product = React.createClass({
             defaultPriceInCents: defaultPriceInCents
         }
         return (
-            <div>
-                <img src={mainImage.ref} alt=""/>
-                <div>{name}</div>
-                <div>{formatedPrice}</div>
-                <button onClick={this.onProductAdd(product)}>Add to cart</button>
-            </div>
+            <li className="product__container">
+                <img className="product__img"src={mainImage.ref} alt=""/>
+                <div className="product__name">{name}</div>
+                <div className="product__price">{formatedPrice}</div>
+                <button className="product__add-btn" onClick={this.onProductAdd(product)}>Add to cart</button>
+            </li>
         )
     }
 });

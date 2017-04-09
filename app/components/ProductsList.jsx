@@ -1,5 +1,6 @@
 var React = require("react");
 var Product = require("Product");
+var helper = require("helper");
 
 var ProductsList = React.createClass({
     propType: {
@@ -10,16 +11,26 @@ var ProductsList = React.createClass({
     },
     render: function() {
         var {productsList} = this.props;
-        var renderProductsList = () => {
+        var productsRows = helper.arrayChunk(productsList, 3);
+        var renderProductsList = (productsList) => {
             return productsList.map((product) => {
                 return (
                     <Product key={product.id} {...product} onProductAdd={this.handleProductAdd}/>
                 );
             });
         };
+        var renderProductsRows = () => {
+            return productsRows.map((row) => {
+                return (
+                    <ul className="products-list__row">
+                        {renderProductsList(row)}
+                    </ul>
+                )
+            });
+        }
         return (
-            <div>
-                  <div>{renderProductsList()}</div>
+            <div className="products-list">
+                  {renderProductsRows()} 
             </div>
         )
     }

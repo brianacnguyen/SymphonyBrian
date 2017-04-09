@@ -1,0 +1,85 @@
+.cartmodal__container {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    background-color: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.cartmodal__wrapper {
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); 
+    width: 450px;
+    background-color: $forest-blue;
+    text-align: center;
+}
+.cartmodal__header {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 60px;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 15px 0;
+    border-bottom: $thin-white-border;
+}
+.cartmodal__cart {
+    border-bottom: $thin-white-border;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.cartmodal__summary {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: right;
+    font-size: 0;
+    border-bottom: $thin-white-border;
+}
+.cartmodal__summary__description {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    vertical-align: top;
+    font-size: 14px;
+    font-weight: 600;
+}
+.cartmodal__summary__price {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    vertical-align: top;
+    font-size: 14px;
+    font-weight: 100;
+    margin-left: 20px;
+}
+.cartmodal__continue-btn {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 100;
+    transition: all 400ms ease;
+    cursor: pointer;
+    border: none;
+    &:hover, &:focus {
+        outline: 0;
+        color: $forest-blue;
+        background-color: white;
+    }
+}
