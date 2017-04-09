@@ -1,0 +1,21 @@
+.view-as-control__container {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: right;
+    font-size: 0px;
+    padding: 10px 0;
+}
+.view-as-control__text {
+    position: relative;
+    display: inline-block;
+    vertical-align: center;
+    font-size: 14px;
+}
+.view-as-control__select {
+    position: relative;
+    display: inline-block;
+    vertical-align: center;
+    font-size: 14px;
+    margin-left: 20px;
+}

@@ -1,0 +1,37 @@
+.navigation__container {
+    display: block;
+    position: relative;
+    height: 20px;
+    width: auto;
+    max-width: 940px;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+    margin-top: 35px;
+    font-size: 14px;
+    z-index: 9999;
+}
+
+.navigation__links-list {
+    margin-left: 20px;
+    > li {
+        display: inline-block;
+        vertical-align: top;
+    }
+    > li + li {
+        margin-left: 20px;
+    }
+}
+
+.navigation__link {
+    color: white;
+    text-decoration: none;
+    transition: opacity 400ms ease;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+

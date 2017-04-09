@@ -3,19 +3,16 @@ var {Link, IndexLink} = require("react-router");
 
 var Navigation = () => {
     return (
-        <div>
-            <div>
-                Fiji Logo
-            </div>
-            <ul>
+        <div className="navigation__container">
+            <ul className="navigation__links-list">
                 <li>
-                    <IndexLink to="/" activeClassName="">Home</IndexLink>
+                    <IndexLink to="/" className="navigation__link" activeClassName="">Home</IndexLink>
                 </li>
                 <li>
-                    <Link to="/aboutme" activeClassName="">About Me</Link>
+                    <Link to="/aboutme" className="navigation__link" activeClassName="">About Me</Link>
                 </li>
                 <li>
-                    <Link to="/store" activeClassName="">Store</Link>
+                    <Link to="/store" className="navigation__link" activeClassName="">Store</Link>
                 </li>
             </ul>  
         </div>

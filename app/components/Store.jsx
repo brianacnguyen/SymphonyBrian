@@ -118,12 +118,19 @@ var Store = React.createClass({
                 )
             }
         }
+        const bannerStyle = {
+            "background-image": "url(https://d20b8ckvu6gb0w.cloudfront.net/fijiwater/images/FIJI-extra-banner.png)"
+        }
         return (
-            <div>
-                  <div>Insert Banner here</div>
+            <div className="store__container">
+                <div className="store__banner__container">
+                    <div className="store__banner" style={bannerStyle}> </div>
+                </div>
+                <div  className="store__main">
                   <ViewAsControl viewAs={viewAs} onViewChange={this.handleViewChange}/>
                   <ProductsList productsList={productsList} onProductAdd={this.handleProductAdd}/>
                   {renderCart()}
+                </div>
             </div>
         )
     }

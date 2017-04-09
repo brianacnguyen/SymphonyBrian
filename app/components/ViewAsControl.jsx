@@ -16,11 +16,11 @@ var ViewAsControl = React.createClass({
         var {viewAs} = this.state;
 
         return (
-            <div>
-                <div>
+            <div className="view-as-control__container">
+                <div className="view-as-control__text">
                     View as
                 </div>
-                <select value={viewAs} onChange={this.onViewChange}>
+                <select className="view-as-control__select" value={viewAs} onChange={this.onViewChange}>
                     <option value="retailer">Retailer</option>
                     <option value="wholesaler">Wholesaler</option>
                 </select>
