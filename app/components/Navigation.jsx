@@ -9,9 +9,6 @@ var Navigation = () => {
                     <IndexLink to="/" className="navigation__link" activeClassName="">Home</IndexLink>
                 </li>
                 <li>
-                    <Link to="/aboutme" className="navigation__link" activeClassName="">About Me</Link>
-                </li>
-                <li>
                     <Link to="/store" className="navigation__link" activeClassName="">Store</Link>
                 </li>
             </ul>  

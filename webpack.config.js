@@ -24,7 +24,6 @@ module.exports = {
             Main: 'app/components/Main.jsx',
             Navigation: 'app/components/Navigation.jsx',
             Home: 'app/components/Home.jsx',
-            AboutMe: 'app/components/AboutMe.jsx',
             Store: 'app/components/Store.jsx',
             ProductsList: 'app/components/ProductsList.jsx',
             Product: 'app/components/Product.jsx',
