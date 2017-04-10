@@ -13,15 +13,27 @@ var CartModal = React.createClass({
         this.props.onContinueShopping();
     },
     render: function() {
-        var {cart, cartSummary} = this.props;
+        var {cart, cartSummary, viewAs} = this.props;
         var formattedSubtotal = helper.centsToDollars(cartSummary.subtotal);
+        var formattedDiscountedSubtotal = helper.centsToDollars(cartSummary.discountedSubtotal);
 
         var renderCartItems= () => {
             return helper.mapObject(cart, (key, item) => {
                 return (
-                    <CartModalItem key={key} {...item} onProductAdd={this.handleProductAdd} onProductMinus={this.handleProductMinus}/>
+                    <CartModalItem key={key} {...item} onProductAdd={this.handleProductAdd} onProductMinus={this.handleProductMinus} viewAs={viewAs}/>
                 )
             })
+        };
+        var renderSubtotal = () => {
+            if (viewAs === "retailer") {
+                return (
+                      <div className="cartmodal__summary__price">{formattedSubtotal}</div>
+                )
+            } else {
+                return (
+                    <div className="cartmodal__summary__price">{formattedDiscountedSubtotal}</div>
+                )
+            }
         };
         return (
             <div className="cartmodal__container">
@@ -30,7 +42,7 @@ var CartModal = React.createClass({
                   <div className="cartmodal__cart">{renderCartItems()}</div>
                   <div className="cartmodal__summary">
                       <div className="cartmodal__summary__description">Subtotal</div>
-                      <div className="cartmodal__summary__price">{formattedSubtotal}</div>
+                      {renderSubtotal()}
                   </div>
                   <button className="cartmodal__continue-btn" onClick={this.onContinueShopping}>Continue Shopping</button>
                 </div>

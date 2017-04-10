@@ -13,7 +13,8 @@ var Store = React.createClass({
             productsList: [],
             cart: {},
             cartSummary: {
-                subtotal: 0
+                subtotal: 0,
+                discountedSubtotal: 0
             },
             viewAs: "retailer"
         }
@@ -21,8 +22,18 @@ var Store = React.createClass({
     componentWillMount: function() {
         var that = this;
         SymphonyApi.getSymphonyData().then(function(data) {
+            var productsList = [];
+            $.each(data.products, (index, product) => {
+                var productObj = {};
+                productObj.id = product.id;
+                productObj.name = product.name;
+                productObj.mainImage = product.mainImage;
+                productObj.defaultPriceInCents = product.defaultPriceInCents;
+                productObj.discountedPriceInCents = helper.calculateWholesalePriceFromRetail(product.defaultPriceInCents);
+                productsList.push(productObj);
+            })
             that.setState({
-                productsList: data.products
+                productsList: productsList
             });
         }, function(e){
             that.setState({
@@ -40,6 +51,8 @@ var Store = React.createClass({
             cart[productId].quantity = 1;
         }
         cartSummary.subtotal += productObj.defaultPriceInCents;
+        cartSummary.discountedSubtotal += productObj.discountedPriceInCents;
+
         this.setState({
             status: "viewCart",
             cart: cart,
@@ -56,40 +69,12 @@ var Store = React.createClass({
         }
 
         cartSummary.subtotal -= productObj.defaultPriceInCents;
-        console.log(cart);
+        cartSummary.discountedSubtotal -= productObj.discountedPriceInCents;
         this.setState({
             status: helper.isEmptyObject(cart) ? "viewMenu" : "viewCart",
             cart: cart,
             cartSummary: cartSummary
         })
-    },
-    componentDidUpdate: function(prevProps, prevState) {
-        if (this.state.viewAs != prevState.viewAs) {
-            var {productsList, cart, cartSummary} = this.state;
-
-            if (this.state.viewAs === "retailer") {
-                productsList.map((product) => {
-                    product.defaultPriceInCents = helper.calculateRetailPriceFromWholesale(product.defaultPriceInCents);
-                })
-                helper.mapObject(cart, (key, item) => {
-                    item.defaultPriceInCents = helper.calculateRetailPriceFromWholesale(item.defaultPriceInCents);
-                })
-                cartSummary.subtotal = helper.calculateRetailPriceFromWholesale(cartSummary.subtotal);
-            } else if (this.state.viewAs === "wholesaler") {
-                productsList.map((product) => {
-                    product.defaultPriceInCents = helper.calculateWholesalePriceFromRetail(product.defaultPriceInCents);
-                })
-                helper.mapObject(cart, (key, item) => {
-                    item.defaultPriceInCents = helper.calculateWholesalePriceFromRetail(item.defaultPriceInCents);
-                })
-                cartSummary.subtotal = helper.calculateWholesalePriceFromRetail(cartSummary.subtotal);
-            }
-            this.setState({
-                productsList: productsList,
-                cart: cart,
-                cartSummary: cartSummary
-            })
-        }
     },
     handleProductAdd: function(productObj) {
         this.addProductToCart(productObj);
@@ -113,7 +98,7 @@ var Store = React.createClass({
             if (status === "viewCart") {
                 return(
                     <div>
-                        <CartModal cart={cart} cartSummary={cartSummary} onProductAdd={this.handleProductAdd} onProductMinus={this.handleProductMinus} onContinueShopping={this.handleContinueShopping}/>
+                        <CartModal cart={cart} cartSummary={cartSummary} onProductAdd={this.handleProductAdd} onProductMinus={this.handleProductMinus} onContinueShopping={this.handleContinueShopping} viewAs={viewAs}/>
                     </div>
                 )
             }
@@ -129,7 +114,7 @@ var Store = React.createClass({
                     </div>
                     <div  className="store__main">
                       <ViewAsControl viewAs={viewAs} onViewChange={this.handleViewChange}/>
-                      <ProductsList productsList={productsList} onProductAdd={this.handleProductAdd}/>
+                      <ProductsList productsList={productsList} onProductAdd={this.handleProductAdd} viewAs={viewAs}/>
                     </div>
                 </div>
               {renderCart()}

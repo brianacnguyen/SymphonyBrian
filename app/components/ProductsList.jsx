@@ -10,12 +10,12 @@ var ProductsList = React.createClass({
         this.props.onProductAdd(productObj);
     },
     render: function() {
-        var {productsList} = this.props;
+        var {productsList, viewAs} = this.props;
         var productsRows = helper.arrayChunk(productsList, 3);
         var renderProductsList = (productsList) => {
             return productsList.map((product) => {
                 return (
-                    <Product key={product.id} {...product} onProductAdd={this.handleProductAdd}/>
+                    <Product key={product.id} {...product} onProductAdd={this.handleProductAdd} viewAs={viewAs}/>
                 );
             });
         };
