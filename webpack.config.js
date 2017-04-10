@@ -30,6 +30,7 @@ module.exports = {
             CartModal: 'app/components/CartModal.jsx',
             CartModalItem: 'app/components/CartModalItem.jsx',
             ViewAsControl: 'app/components/ViewAsControl.jsx',
+            ApiDemo: 'app/components/ApiDemo.jsx',
             SymphonyApi: 'app/api/SymphonyApi.jsx',
             helper: 'app/utils/helper.js',
             applicationStyles : 'app/styles/app.scss'

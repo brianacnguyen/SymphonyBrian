@@ -6,7 +6,9 @@
     font-size: 0px;
 }
 .products-list__row + .products-list__row {
-    border-top: $thin-white-border;
+    @include bp(screen-desktop) {
+        border-top: $thin-white-border;
+    }
 }
 .products-list__row:first-child {
     > .product__container {

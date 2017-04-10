@@ -22,7 +22,12 @@
     vertical-align: top;
     margin-left: 20px;
     height: 100px;
-    width: 290px;
+    width: -webkit-calc(100% - 120px);
+    width: -moz-calc(100% - 120px);
+    width: calc(100% - 120px);
+    @include bp(screen-tablet) {
+        width: 290px;
+    }
 }
 .cartmodel__item__info__name {
     font-size: 18px;

@@ -8,7 +8,7 @@ var Home = React.createClass({
                 <div className="home__header">
                   Hello Phil. I've been expecting you...
                 </div>
-                  <Link to="/store" className="home__continue-btn" activeClassName="">Click to Continue</Link>
+                  <Link to="/store" className="home__continue-btn" activeClassName="">Continue to Store</Link>
             </div>
         )
     }

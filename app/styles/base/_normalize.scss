@@ -3,6 +3,8 @@
      font-family: $base-font-family;
      background-color: $forest-blue;
      color: white;
+     overflow: auto!important;
+    max-height: 100vh;
    }
 
 

@@ -11,6 +11,9 @@ var Navigation = () => {
                 <li>
                     <Link to="/store" className="navigation__link" activeClassName="">Store</Link>
                 </li>
+                <li>
+                    <Link to="/apidemo" className="navigation__link" activeClassName="">Api Demo</Link>
+                </li>
             </ul>  
         </div>
     )

@@ -9,9 +9,15 @@
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     transform: translateX(-50%);
-    margin-top: 35px;
     font-size: 14px;
     z-index: 9999;
+    margin-top: 15px;
+    @include bp(screen-iphone6plus) {
+        margin-top: 25px;
+    }
+    @include bp(screen-desktop) {
+        margin-top: 35px;
+    }
 }
 
 .navigation__links-list {

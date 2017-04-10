@@ -19,9 +19,10 @@
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); 
-    width: 450px;
     background-color: $forest-blue;
     text-align: center;
+    width: 100%;
+    max-width: 450px;
 }
 .cartmodal__header {
     position: relative;

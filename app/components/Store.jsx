@@ -4,6 +4,7 @@ var ProductsList = require("ProductsList");
 var CartModal = require("CartModal");
 var ViewAsControl = require("ViewAsControl");
 var helper = require("helper");
+var {Link} = require("react-router");
 
 var Store = React.createClass({
     getInitialState: function() {
@@ -107,7 +108,7 @@ var Store = React.createClass({
             "backgroundImage": "url(https://d20b8ckvu6gb0w.cloudfront.net/fijiwater/images/FIJI-extra-banner.png)"
         }
         return (
-            <div>
+            <div className="store">
                 <div className="store__container">
                     <div className="store__banner__container">
                         <div className="store__banner" style={bannerStyle}> </div>
@@ -118,6 +119,7 @@ var Store = React.createClass({
                     </div>
                 </div>
               {renderCart()}
+              <Link to="/apidemo" className="store__continue-btn" activeClassName="">Continue to API Demo</Link>
             </div>
         )
     }
